@@ -2,6 +2,14 @@
     "files.associations": {
         "iostream": "cpp",
         "random": "cpp",
-        "ostream": "cpp"
-    }
+        "ostream": "cpp",
+        "iomanip": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "vector": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "cmath": "cpp"
+    },
+    "debug.autoExpandLazyVariables": true
 }

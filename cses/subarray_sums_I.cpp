@@ -1,0 +1,8 @@
+#include <bits/stdc++.h>
+#define endl '\n'
+#define int long long
+
+using namespace std;
+signed main(){
+    
+}
