@@ -3,3 +3,7 @@
 !*/
 .vscode
 *.exe
+settings.json
+launch.json
+tasks.json
+
