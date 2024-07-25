@@ -10,37 +10,46 @@ void printvec(vector<vector<int> > a){
     }cout<<endl;
 }
 signed main(){
-    int i, j; i = j = 0;
-    string a, b; cin>>a>>b;
-    int n, m; 
-    n = a.size(); m = b.size();
-    vector<vector<int> > dp(n, vector<int>(m));
-    for(int i = 0; i<n; i++){
-        if(a[i]==b[0]){
-            dp[i][0] = 1;
-        }
-        if(i!=0){
-            dp[i][0] = max(dp[i][0], dp[i-1][0]);
-        }
-    }
-    for(int i = 0; i<m; i++){
-        if(a[0]==b[i]){
-            dp[0][i] = 1;
-        }
-        if(i!=0){
-            dp[0][i] = max(dp[0][i], dp[0][i-1]);
-        }
-    }
-    for(int i = 1; i<n; i++){
-        for(int j = 1; j<m; j++){
-            if(a[i]==b[j]){
-                dp[i][j] = dp[i-1][j-1]+1;
-            }else{
-                dp[i][j] = max(dp[i-1][j], dp[i][j-1]);
+
+    string a, b;
+    cin>>a>>b;
+    int n = a.size();
+    int m = b.size();
+    /*
+    dp[i][j] records the min steps required to make first i letters of a and first j of b equal
+    
+    Say we have dp[i-1][j-1], dp[i-1][j], dp[i][j-1]
+    
+    we have a few options:
+        1. Follow how we made the first i, j-1 th char the same and just remove the j th
+            dp[i][j] = dp[i][j-1]+1
+        2. Same as 1. but with i
+            dp[i][j] = dp[i-1][j]+1
+        3. Make the first i-1, j-1 th char the same, change the ith(or jth) letter
+            dp[i][j] = dp[i-1][j-1]+1
+        4. Same as above, but a[i-1]=b[j-1] so we don't change the ith(or jth) letter
+            dp[i][j] = dp[i-1][j-1]
+
+
+    */
+    vector<vector<int> > dp(n+1, vector<int>(m+1, 1e9));
+    dp[0][0] = 0;
+    for(int i = 0; i<=n; i++){
+        for(int j = 0; j<=m; j++){
+            if(i){
+                dp[i][j] = min(dp[i-1][j]+1, dp[i][j]);
+            }
+            if(j){
+                dp[i][j] = min(dp[i][j-1]+1, dp[i][j]);
+            }
+            if(i&&j){
+                dp[i][j] = min(dp[i][j], dp[i-1][j-1]+!(a[i-1]==b[j-1]));
             }
         }
     }
-
-    cout<<m-dp[n-1][m-1]<<endl;
+    // printvec(dp);
+    cout<<dp[n][m]<<endl;
+    
 
 }
+

@@ -1,2 +1,2 @@
-
-    for(int i = 0; i<n; i++){
+//use a[i]
+            // dp[i][j+a[i]] += findv(i-1, j+a[i]);
