@@ -2,14 +2,7 @@
     "files.associations": {
         "iostream": "cpp",
         "random": "cpp",
-        "ostream": "cpp",
-        "iomanip": "cpp",
-        "deque": "cpp",
-        "string": "cpp",
-        "vector": "cpp",
-        "forward_list": "cpp",
-        "list": "cpp",
-        "cmath": "cpp"
+        "ostream": "cpp"
     },
-    "debug.autoExpandLazyVariables": true
+    "C_Cpp.default.compilerPath": "c:\\msys64\\ucrt64\\bin\\gcc.exe"
 }
