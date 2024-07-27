@@ -4,8 +4,8 @@ using namespace std;
 
 
 struct node{
-    int l, r;
-    int lson, rson;
+    int l, r; //left boundary, right boundary
+    int lson, rson; //index of lson, rson
     int data;
 };
 
@@ -17,15 +17,14 @@ signed main(){
     for(int i = 0; i<n; i++){
         cin>>arr[i];
     }
-    int counter = 0;
-    function<void(int, int, int)> build = [&](int l, int r, int index){
+    int counter = 0; //for creating node's index
+    function<void(int, int, int)> build = [&](int l, int r, int index){ //l is the left boundary, r right, index is where the node is stored in the segment tree array
         st[index].l = l; st[index].r = r;
-        if(l==r-1) st[index].data = arr[l];
+        if(l==r-1) st[index].data = arr[l]; //bottom of the tree
         else{
-            
             st[index].lson = 0;
             counter++;
-            int lson = st[index].lson=counter;
+            int lson = st[index].lson = counter;
             counter++;
             int rson = st[index].rson = counter;
             build(l, (l+r)/2, lson);

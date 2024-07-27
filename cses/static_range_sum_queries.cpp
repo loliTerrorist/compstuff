@@ -16,7 +16,7 @@ signed main(){
     }
     for(int i = 0; i<q; i++){
         int a, b; cin>>a>>b;
-
+        
         cout<<prefix_sum[b]-prefix_sum[a-1]<<endl;
     }
 
